@@ -1,4 +1,4 @@
 [[redirects]]
 from = "/*"
-to = "/:splat"
+to = "/public/AT1/Ex8.html"
 status = 200
