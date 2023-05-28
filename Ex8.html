@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ex8</title>
+</head>
+<body>
+	<label for="txta">Donner ton moyenne general:</label>
+	<input type="text" name="txt" id="txt" value="">	
+	<input type="button" id="btn" value="Mention" />
+	<h2 id="res"></h2>
+	<script>
+		btn=document.getElementById('btn');
+		res=document.getElementById('res');
+		btn.addEventListener('click',men);
+		function men() {
+			s=0
+			a=Number(document.getElementById('txt').value);
+			if (a>=10 && a<12) {
+				res.innerHTML="Passable"
+			}
+			else if (a>=12 && a<14) {
+				
+				res.innerHTML="Assez Bien"
+			}
+			else if (a>16 && a<=14) {
+				
+				res.innerHTML="Bien"
+			}
+			else if (a>=16 && a<18) {
+				
+				res.innerHTML="Tres Bien"
+			}
+			else if (a>=18) {
+				
+				res.innerHTML="Excellent"
+			}
+			
+
+		}
+	</script>
+</body>
+</html>

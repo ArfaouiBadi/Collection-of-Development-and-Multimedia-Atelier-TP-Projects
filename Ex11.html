@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ex11</title>
+</head>
+<body>
+	<label for="txta">Donner un Nomber:</label>
+	<input type="text" name="txt" id="txta" value="">
+	<input type="button" id="btn" value="Calcule" />
+	<h2 id="res"></h2><br>
+	<script>
+		btn=document.getElementById('btn');
+		res=document.getElementById('res');
+		btn.addEventListener('click',add);
+		function add() {
+			num=Number(document.getElementById('txta').value)
+			ch="<table>"
+			for (var i = 0; i < num; i++) {
+				if (num%i==0) {
+					res.style.background="blue"
+					res.innerHTML+="<table><tr><td>"+i+"</td></tr>"
+				}
+			}
+			res.innerHTML+="</table>"
+			res.innerHTML+="<table><tr><td>"+i+"</td></tr>"
+		
+
+
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ex9</title>
+</head>
+<body>
+	<label for="txta">Donner un Anneé:</label>
+	<input type="text" name="txt" id="txta" value="">
+	<input type="button" id="btn" value="Calcule" />
+	<h2 id="res"></h2><br>
+	<script>
+		btn=document.getElementById('btn');
+		res=document.getElementById('res');
+		btn.addEventListener('click',add);
+		function add() {
+			an=Number(document.getElementById('txta').value)
+			if (an%4==0) {
+				if (an%100==0) {
+					if (an%400==0) {
+						res.innerHTML="L’année est une année bissextile (elle compte 366 jours). "
+					}
+					else{
+						res.innerHTML='L’année n’est pas une année bissextile (elle compte 365 jours).'}
+				}
+				else{
+					res.innerHTML="L’année est une année bissextile (elle compte 366 jours). "
+				}
+			}
+			else{
+				res.innerHTML='L’année n’est pas une année bissextile (elle compte 365 jours).'}
+			
+			
+
+		}
+	</script>
+</body>
+</html>

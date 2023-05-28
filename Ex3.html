@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ex3</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>
+				<label for="txt">Donner un number a :</label>
+			</td>
+			<td>
+				<input type="text" name="txt" id="txta" value="">
+			</td>
+
+		</tr>
+		<tr>
+			<td>
+				<label for="txt">Donner un number b :</label>
+			</td>
+			<td>
+				<input type="text" name="txt" id="txtb" value="">
+			</td>
+
+		</tr>
+		
+		<tr>
+			<td>
+				<h4 id="res"></h4>
+			</td>
+		</tr>
+	</table>
+	<input type="button" id="btn" value="Calcule" />
+
+	<script>
+		btn=document.getElementById('btn');
+		res=document.getElementById('res');
+		btn.addEventListener('click',mult);
+		function mult() {
+			a=document.getElementById('txta').value;
+			b=document.getElementById('txtb').value;
+			console.log(a%b)
+			if(a%b==0){
+				res.innerHTML="a est un multiple de b"
+		}
+			else{
+				if(b%a==0){
+					res.innerHTML="b est un multiple de a"
+				}
+				else{
+					res.innerHTML="les nomber ne sont pas multible de l'autre"
+				}
+		}
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ex1</title>
+</head>
+<body>
+	<table>
+		<tr>
+			<td>
+				<label for="txt">Donner un number :</label>
+			</td>
+			<td>
+				<input type="text" name="txt" id="txt" value="">
+			</td>
+
+		</tr>
+		
+		<tr>
+			<td>
+				<label for="res">Resultat :</label>
+			</td>
+			<td>
+	<input type="text" name="res" id="res" value=""></td>
+		</tr>
+	</table>
+	<input type="button" id="btn" value="Calcule" />
+
+	<script>
+		btn=document.getElementById('btn');
+		res=document.getElementById('res');
+		btn.addEventListener('click',calc);
+		function calc() {
+			num=document.getElementById('txt').value;
+			s=0;
+			
+			for (var i = 0; i <= num; i++) {
+				
+				s+=i;}
+			
+			res.value=s;
+		}
+	</script>
+</body>
+</html>

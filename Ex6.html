@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ex6</title>
+</head>
+<body>
+	<label for="txta">a:</label>
+	<input type="text" name="txta" id="txta" value="">
+	<label for="txtb">b:</label>
+	<input type="text" name="txtb" id="txtb" value="">
+	<label for="txtc">c:</label>
+	<input type="text" name="txtc" id="txtc" value="">
+	
+	<input type="button" id="btn" value="egaux?" />
+	<h2 id="res"></h2>
+	<script>
+		btn=document.getElementById('btn');
+		res=document.getElementById('res');
+		btn.addEventListener('click',egaux);
+		function egaux() {
+			s=0
+			a=Number(document.getElementById('txta').value);
+			b=Number(document.getElementById('txtb').value);
+			c=Number(document.getElementById('txtc').value);
+			
+			s+=a+b+c
+			if(s-a==a){
+				res.innerHTML=a+" / a est egaux au somme "	
+			}
+			else if (s-b==b) {
+				res.innerHTML=b+" / b est egaux au somme "
+			}
+			else if (s-c==c) {
+				res.innerHTML=c+" / c est egaux au somme "
+			}
+			else{
+
+				res.innerHTML="0"
+			}
+			}
+	</script>
+</body>
+</html>

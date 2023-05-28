@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ex9</title>
+</head>
+<body>
+	<label for="txta">a:</label>
+	<input type="text" name="txta" id="txta" value="">
+	<label for="txtb">b:</label>
+	<input type="text" name="txtb" id="txtb" value="">
+	<label for="txtc">c:</label>
+	<input type="text" name="txtc" id="txtc" value="">
+	<input type="button" id="btn" value="Calcule" />
+	<h2 id="res1"></h2><br>
+	<script>
+		btn=document.getElementById('btn');
+		
+		res=document.getElementById('res');
+		btn.addEventListener('click',add);
+		function add() {
+			a=Number(document.getElementById('txta').value)
+		b=Number(document.getElementById('txtb').value)
+		c=Number(document.getElementById('txtc').value)
+			delta=b*b-(4*a*c);
+			console.log(delta)
+			if (delta==0) {
+				x1=-b/2*a;
+				res1.innerHTML="<ul><li>x1="+x1+"</li></ul>"
+				res1.style.color="Blue"
+			}
+			else if(delta>0){
+				x1="x1 = "+	(-b-Math.sqrt(delta))/(2*a)
+				x2="x2 = "+	(-b+Math.sqrt(delta))/(2*a)
+				res1.innerHTML="<ul><li>"+x1+"</li><li>"+x2+"</li></ul>"
+				res1.style.color="green"
+				
+			}
+			else{
+				res1.innerHTML="Aucne Solution"
+				res1.style.color="Red"
+			}
+			
+			
+
+		}
+	</script>
+</body>
+</html>
