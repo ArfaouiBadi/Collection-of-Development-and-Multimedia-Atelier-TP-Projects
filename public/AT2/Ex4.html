@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login</title>
+</head>
+
+<body style="display:block; align-content: center; text-align: center;" onload="RemplirTable()" >
+	<input type="button" id="connecter" value="Se connecter"><br>
+	<input type="button" id="modif" value="modifer le mot de pass"><br>
+	<input type="button" id="quit" value="quitter">
+
+</body>
+<script type="text/javascript">
+	var logins=[[]];
+	conn=document.getElementById("connecter")
+	modif=document.getElementById("modif")
+	quit=document.getElementById("quit")
+	function RemplirTable() {
+		for (let i = 0; i < 5 ; i++) {
+			var user,password;
+			do{user=prompt("User :");}while(verifierLogin(user)==true);
+			do{password=prompt("password :")}while(verifierMotPass(password)==false);
+			
+			logins[i][0]=user;
+			logins[i][1]=password;
+			console.log(logins)
+		}}
+	function confirmClose() {
+		if (window.confirm("Are you sure you want to close this login window?")) {
+			window.close();
+		}
+	}
+	function verifierLogin(login){
+		if(login=="" || login.length<8 || login.length>25 || login.search(" ")!=-1|| login.search(",")!=-1)
+		{
+			return false;
+		}
+		return true;
+	}
+	function verifierMotPass(mdp){
+		if(mdp=="" || mdp.length<8 || mdp.length>25)
+		{
+			return false;
+		}
+		return true;
+	}
+	function chercheUser(user,mdp){
+		for (let i = logins.length - 1; i >= 0; i--) {
+			if (user.toUpperCase() === logins[i][0].toUpperCase() &&mdp.toUpperCase() === logins[i][1].toUpperCase()) {
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	function modifyUser(){
+		userchange=prompt("donner user qui peut changer le password User");
+		passchange=prompt("donner user qui peut changer le password Password");
+		user=chercheUser(userchange,passchange)
+		if(user ==-1){
+			alert("you dont have an account");
+		}
+		else{
+			do{newuser=prompt("User :");}while(verifierLogin(newuser)==true);
+			do{newpassword=prompt("password :")}while(verifierMotPass(newpassword)==false);
+			logins[user][0]=newuser
+			logins[user][0]=newpassword
+		}
+	}
+	function connexion(user){
+		document.body.innerHTML="Hello"+user;
+	}
+	function connecter(){
+		userchange=prompt("User");
+		passchange=prompt("Password");
+		user=chercheUser(userchange,passchange)
+		if(user ==-1){
+			alert("Login et mot de passe incorrect");
+		}
+		else{
+			connexion(userchange);
+		}
+	}
+	document.addEventListener("load",RemplirTable)
+	conn.addEventListener("click",connecter)
+	modif.addEventListener("click",modifyUser)
+	quit.addEventListener("click",confirmClose)
+</script>
+</html>

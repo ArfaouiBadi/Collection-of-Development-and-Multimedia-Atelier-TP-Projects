@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ex9</title>
+</head>
+<body>
+<div><h1>Demande pour repasser les E.C.</h1>
+<form name="demande">
+<table>
+	<tr>
+		<td>les EC proposes<br>
+			<select name="ListeEC" size="5" id="ListeEC">
+				<option value="Algo">Algorithmique</option>
+				<option value="Prog">Programmation</option>
+				<option value="Anal">Analyse</option>
+				<option value="Angl">Anglais</option>
+				<option value="Sprt">Sport</option>
+				<option value="Gest">Gestion</option>
+				<option value="Resx">Reseaux</option>
+			</select>
+		</td>
+		<td>
+			<input type="button" value="ajouter"><br>
+			<input type="button" value="<<enlever" >
+		</td>
+		<td> 
+			les EC demandees<br>
+			<select name="ListeChoix" size="5" id='ListeChoix'></select>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="3" align="center">
+			<input type="button" value="listedemandee" >
+		</td>
+	</tr>
+</table>
+</form>
+</div>
+
+<script type="text/javascript">
+	var btn = document.getElementsByTagName('input');
+	var tr = document.getElementsByTagName("tr")[0];
+	var c = 0;
+
+	function selectedornot(elem){
+		for(var i=0; i<ListeChoix.length; i++){
+			if(ListeChoix[i].text==elem){
+				return true;
+			}
+		}
+		return false;
+	}
+
+	btn[0].addEventListener("click", function (){
+		var nbr = ListeEC.options.selectedIndex;
+		var newoption = new Option(ListeEC.options[nbr].text, ListeEC.options[nbr].value);
+		ListeChoix.options[c] = newoption;
+		c++;
+	});
+
+	btn[1].addEventListener("click", function (){
+		var nbr = ListeChoix.options.selectedIndex;
+		if (ListeChoix.options[nbr].text != "") {
+			ListeChoix.options[nbr] = null;
+		}
+	});
+
+	btn[2].addEventListener("click",function (){
+		var tdcreated=document.createElement("td");
+		for  (var i = 0; i < ListeEC.length; i++) {
+			var input=document.createElement("input");
+			input.setAttribute("type","checkbox");
+			var label=document.createElement("label");
+			label.textContent=ListeEC[i].text;
+			var br=document.createElement("br");
+
+			for(var j=0; j < ListeChoix.length; j++){
+				if(ListeChoix[j].text==ListeEC[i].text){
+					input.checked=true;
+				}
+				
+			}
+
+			tdcreated.appendChild(input);
+			tdcreated.appendChild(label);
+			tdcreated.appendChild(br);
+			console.log(input);
+			console.log(label);
+		}
+		tr.appendChild(tdcreated);
+	});
+</script>
+</html>

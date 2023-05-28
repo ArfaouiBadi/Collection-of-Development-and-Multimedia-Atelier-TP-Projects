@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ex6</title>
+</head>
+<body>
+<h1>Compter mots</h1>
+<textarea rows="5" cols="5">arfaoui</textarea>
+<button value="compter nom" id="com">Compter mots</button>
+</body>
+<script type="text/javascript">
+	btn=document.getElementById("com")
+	btn.addEventListener("click",function(){
+		area=document.getElementsByTagName('textarea')[0].value.trim()
+		console.log(area.split(" "))
+		alert(eval(area.split(" ").length)+"mots")
+	})
+</script>
+</html>

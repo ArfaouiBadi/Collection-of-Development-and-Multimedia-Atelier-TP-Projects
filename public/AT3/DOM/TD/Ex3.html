@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ex3</title>
+</head>
+<body><div>Jeux en ligne
+<p>TRIPOD ATTACK</p>et
+<p>COURSE URBAINE<span>Top 10</span></p>
+</div><div>Jeux à télécharger<a href="#lien2"></a>
+<img src=""/><span>span span</span>etc...
+</div>
+</body>
+<script type="text/javascript">
+	division2=document.getElementsByTagName('div')[1]
+	division2_2=document.body.childNodes[1]
+	console.log(division2)
+	console.log(division2_2)
+	console.log(division2.childNodes.length)
+	division1=division2.previousSibling
+	console.log(division1)
+	division2.firstChild.nextSibling.setAttribute("href","cours.html")
+	console.log(division2.firstChild.nextSibling.innerHTML="X-moto")
+	img=document.createElement("img")
+	
+	img.src=""
+	document.body.insertBefore(img,division2)
+	console.log(division1.childNodes)
+</script>
+</html>

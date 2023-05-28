@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ex5</title>
+</head>
+<body>
+	<label for="txta">a:</label>
+	<input type="text" name="txta" id="txta" value="">
+	<label for="txtb">b:</label>
+	<input type="text" name="txtb" id="txtb" value="">
+	<label for="txtc">c:</label>
+	<input type="text" name="txtc" id="txtc" value="">
+	<label for="txtc">d:</label>
+	<input type="text" name="txtd" id="txtd" value="">
+	<input type="button" id="btn" value="Calcule" />
+	<h2 id="res"></h2>
+	<script>
+		btn=document.getElementById('btn');
+		res=document.getElementById('res');
+		btn.addEventListener('click',mult);
+		function mult() {
+			s=0
+			a=Number(document.getElementById('txta').value);
+			b=Number(document.getElementById('txtb').value);
+			
+			s+=a+b
+			a=Number(document.getElementById('txtc').value);
+			b=Number(document.getElementById('txtd').value);
+			s+=a+b
+			res.innerHTML="La Somme est : "+s
+
+		}
+	</script>
+</body>
+</html>

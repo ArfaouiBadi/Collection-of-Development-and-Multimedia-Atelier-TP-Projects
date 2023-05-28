@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>URL</title>
+</head>
+<body>
+
+	<h1 id="prot"></h1>
+	<h1 id="domaine"></h1>
+
+
+	<script type="text/javascript">
+		prot=document.getElementById("prot")
+		domaine=document.getElementById("domaine")
+		URL=prompt("What's The URL ? :")
+		points=URL.search(":")
+		Prot=URL.substr(0,points)
+		prot.innerHTML="Le Protocole utilisee :"+Prot
+		URL=URL.substr(points+3,URL.length)
+		lastslash=URL.search("/")
+		Domaine=URL.substr(0,lastslash)
+		domaine.innerHTML="Le nom du domaine : "+Domaine
+
+	</script>
+</body>
+</html>

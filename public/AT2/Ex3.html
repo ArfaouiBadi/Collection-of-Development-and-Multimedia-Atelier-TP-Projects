@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ex3</title>
+</head>
+<body>
+	<fieldset>
+		<legend>Enfants</legend>
+		<input id="n1" type="button" name="1" value="Permier Enfants" >
+		<input id="n2" type="button" name="2" value="Deuxieme Enfants" >
+		<input id="n3" type="button" name="3" value="Troisieme Enfants" >
+		<hr>
+		
+		<button style="display: flex;margin: auto;" id="verification">Verification</button>
+		<p id="zone">	</p>
+	</fieldset>
+
+	<script type="text/javascript">
+		var enfants=[]
+		n1=document.getElementById("n1")
+		n2=document.getElementById("n2")
+		n3=document.getElementById("n3")
+		verification=document.getElementById("verification")
+		zone=document.getElementById("zone")
+		n1.addEventListener("click", function() {
+  			saisir(n1,enfants);
+  			console.log(enfants)
+		});
+		n2.addEventListener("click", function() {
+  			saisir(n2,enfants);
+  			console.log(enfants)
+		});
+		n3.addEventListener("click", function() {
+  			saisir(n3,enfants);
+  			console.log(enfants)
+		});
+
+
+		verification.addEventListener("click", function() {
+			age(enfants)
+  			var test =ordreCorrect(enfants);
+  			if(test==false){
+				char="Problem dans l'order des dates  données <br>"
+				for (var i = 0; i < enfants.length; i++) {
+					char+=enfants[i].id+" "+enfants[i].year+"/"+enfants[i].month+"/"+enfants[i].day+"<br>"
+				}
+				zone.innerHTML=char
+			}
+			else{
+				zone.innerHTML="Les Date de naissance des enfants sont dans l'order correct <br>"	
+			}
+			birthday(enfants)
+		});
+
+		function age(enfants){
+			var date = new Date()
+			var year =date.getFullYear()
+			for (var i = 0; i < enfants.length; i++) {
+				enfants[i].age=year-enfants[i].year
+			}
+		}
+
+		function saisir(x,enfants) {
+			e={}
+			e.id=x.value
+			do{
+				e.day=prompt("Day : ")
+			}while(e.day<=0 || e.day>31)
+			do{
+				e.month=prompt("Month : ")
+			}while(e.month<=0 || e.month>12)
+			do{
+				e.year=prompt("year : ")
+			}while(e.year<=1990 || e.year>2014 || e.year.length!=4)
+			enfants.push(e)
+			x.disabled =true
+		}
+
+
+		function tosecond(x){
+			char=x.year+"-"+x.month+"-"+x.day
+			date = new Date(char);
+			return date.getTime()/1000
+		}
+
+
+		function ordreCorrect(enfants){
+			for (var i = 0; i < enfants.length; i++) {
+				var seconds;
+				var seconds=tosecond(enfants[i])
+				enfants[i].year_to_second=seconds
+			}
+			console.log(enfants);
+			var i=0;
+			var test=true;
+			while(test==true && i<enfants.length-1){
+				if(enfants[i].year_to_second<enfants[i+1].year_to_second){
+					i++}
+				else{test=false;}
+			}
+			
+			return test
+		}
+		function birthday(enfants){
+			var date = new Date()
+			var year =date.getFullYear()
+			var month =date.getMonth()
+			var day =date.getDate()
+			
+			for (var i = 0; i < enfants.length; i++) {
+				if(enfants[i].age>18){
+					zone.innerHTML+="votre "+enfants[i].id+" a "+enfants[i].age+" ans <br>"
+					zone.innerHTML+="votre "+enfants[i].id+" peut passer son permis de conduire <br>"
+				}
+				if(enfants[i].day==day && enfants[i].month==month ){
+					zone.innerHTML+="votre "+enfants[i].id+" a "+enfants[i].age+" ans<br>"
+					zone.innerHTML+="aujourd'hui c'est l'anniversaire de votre <br>"+enfants[i].id
+				}
+				else{
+					zone.innerHTML+="votre "+enfants[i].id+" a "+enfants[i].age+" ans<br>"
+				}
+				
+			}
+		}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Didactitiel : apprentissage nom d'animaux</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+    </head>    <body>        <div>
+            <h2>cliquer sur le nom correct </h2>
+            <img src='img/chien.gif' width='100' height="100">
+            <table  border=1 width='50%' 
+style="font-family: sans-serif; color: green;  background-color: yellow;font-size: x-large;font-weight: bolder;">
+                <tr> <td>ours</td>
+                    <td>elephant</td>
+                    <td>grenouille</td>
+                    <td>lion</td></tr>
+                <tr><td>mouton</td>
+                    <td>chien</td>
+                    <td>rat</td>
+                    <td>renard</td></tr>
+            </table> </div>    
+
+
+                <script type="text/javascript">
+            tnomimage=["ours","elephant","grenouille","Lion","mouton","chien","rat","renard"];
+            ttd=document.getElementsByTagName('td');
+            score=0
+            function start(){
+                console.log(document.getElementsByTagName('img')[0].src)
+            for (let i = 0; i < ttd.length; i++) {
+                ttd[i].addEventListener("mouseover",function () {
+                        if(tnomimage[i]=="chien"){
+                            
+                            ttd[i].style.color="red"
+                        }
+                })
+            }   
+            }  
+            start()
+                </script>
+        </body></html>

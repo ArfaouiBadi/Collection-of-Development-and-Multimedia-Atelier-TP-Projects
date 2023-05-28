@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ex1</title>
+</head>
+<body>
+	<h1 id="res1"></h1>
+	<h2 id="somme1"></h2>
+	<h1 id="res2"></h1>
+	<h2 id="somme2"></h2>
+	<script type="text/javascript">
+		res1=document.getElementById("res1");
+		somme1=document.getElementById("somme1");
+		s1=0
+		
+		//Declaration de tableaux T//
+		var T=[[213,125,124,320],[]]
+
+		//Affichage de 1ere nivaux + calculer la somme s1//
+		for (var i = 0; i < T.length; i++) {
+			for (var j = 0; j < T[i].length; j++) {
+				console.log(T[i][j])
+				res1.innerHTML+=" scoreNiv1["+j+"]  |*| "+T[i][j];
+				s1+=T[i][j];
+			}
+		}
+
+		somme1.innerHTML="Le score total de premiere niveay est : "+s1
+		s2=0
+		
+		for (var j = 0; j < T[0].length; j++) {
+				if (j!=3) {
+					T[1][j]=T[0][j]*2
+				}
+				else{
+					T[1][j]=423
+				}
+				s2+=T[1][j];
+			}
+			
+			
+
+		//Affichage des scores de deuxieme niveau//	
+		for (var j = 0; j < T[1].length; j++) {
+				res2.innerHTML+=" scoreNiv2["+j+"]  |*|  "+T[1][j];
+			}
+		somme2.innerHTML="Le score total de deuxiem niveay est : "+s2
+
+		//Concat//
+		var TousLesScores=T[0].concat(T[1])
+		//affichage ASC//
+		console.log(TousLesScores.sort())
+		//affichge DESC//
+		console.log(TousLesScores.sort().reverse())
+		
+	</script>
+</body>	
+</html>

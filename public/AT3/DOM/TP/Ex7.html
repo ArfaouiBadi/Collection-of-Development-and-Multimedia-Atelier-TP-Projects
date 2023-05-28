@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html> <head> <title>Questionnaire</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+</head> <body> <div> <h2>Questionnaire</h2>
+<form>
+<h3>Question 1 :</h3><br>
+parmi ces 5 adresses de site internet imaginaires, lesquelles pourraient exister réellement? (2 bonnes réponses)<br>
+<input type="checkBox" name="Q1" id="Q1R1" value="Q1R1" >//concour.+http:<br>
+<input type="checkBox" name="Q1" id="Q1R2" value="Q1R2">Inc@concour.tn<br>
+<input type="checkBox" name="Q1" id="Q1R3" value="Q1R3">http://www.concour.tn<br>
+<input type="checkBox" name="Q1" id="Q1R4" value="Q1R4">http:/@concours.htm<br>
+<input type="checkBox" name="Q1" id="Q1R5" value="Q1R5" > http://www.concour.tn/inscrire.php?code=5<br>
+<h3>Question 2 :</h3><br>
+Quel terme utilise-t-on pour designer un utilisateur internet? (1 bonne réponse)<br>
+<input type="radio" name="Q2" id="Q2R1" value="Q2R1">Provider<br>
+<input type="radio" name="Q2" id="Q2R2" value="Q2R2">Browser<br>
+<input type="radio" name="Q2" id="Q2R3" value="Q2R3">Internaute<br>
+<input type="radio" name="Q2" id="Q2R4" value="Q2R4">Navigateur<br><br><br>
+<input type="button" value="Correction">
+<input type="reset" value="Effacer">
+<input type="button" value="Corrige">
+</form> </div> </body>
+<script type="text/javascript">
+	
+	input=document.getElementsByTagName('input')
+	inputQ1=document.getElementsByName('Q1')
+	inputQ2=document.getElementsByName('Q2')
+	input[9].addEventListener("click",function (){
+		var score=0
+		if(inputQ1[0].checked==true){
+			score-=5
+		}
+		else {score+=5}
+		
+		if(inputQ1[1].checked==true){
+			score-=5
+		}
+		
+		else {score+=5}
+		
+		if (inputQ1[2].checked==true) {
+			score+=5
+		}else {score-=5}
+		
+		if(inputQ1[3].checked==true){
+			score-=5
+		}else{score+=5}
+		
+		if(inputQ1[4].checked==true){
+			score+=5
+		}else {score-=5}
+		////partie 2
+		if(inputQ2[0].checked==true){
+			score-=5
+		}
+		if(inputQ2[1].checked==true){
+			score-=5
+		}
+		if(inputQ2[2].checked==true){
+			score+=5
+		}
+		if(inputQ2[3].checked==true){
+			score-=5
+		}
+		
+		alert(score)
+		
+	}
+	)
+	input[11].addEventListener("click",function (){
+		window.location.href = "http://badi.com";
+	})
+	
+
+</script>
+
+</html>

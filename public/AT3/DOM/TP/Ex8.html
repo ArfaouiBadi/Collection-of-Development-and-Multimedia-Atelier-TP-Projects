@@ -1,0 +1,31 @@
+<!DOCTYPE html><html> <head> <title>Convertisseur de devise</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+</head> <body> <div> <h2>Convertisseur de devise</h2> <form name="dev">
+Montant en dinars tunisien : <input type="text" name="MDT" id="MDT" value="0"><br>
+Montant equivalent : <input type="text" name="MEQ" id="MEQ" ><br>
+<input type="radio" name="devise" id="euro" value="euro" checked>Euro<br>
+<input type="radio" name="devise" id="dollar" value="dollar">Dollar d'USA<br>
+<input type="radio" name="devise" id="livre" value="livre">Livre sterling<br>
+<input type="radio" name="devise" id="yen" value="yen">Yen japonais<br>
+<input type="button" value="Changer cours">
+</form> </div> </body>
+<script type="text/javascript">
+	equivalent=new Array(3.45,3.06,2.16,1415.9495)
+	var name=new Array('Euro','Dollar dUSA','Livre sterling','Yen Japonais')
+	input=document.getElementsByTagName('input')
+	devise=document.getElementsByName("devise")
+	console.log(name)
+	res=document.getElementById("MEQ")
+	input[6].addEventListener("click",function(){
+		dinar = document.getElementById("MDT").value;	
+		for (var i = 0; i < devise.length; i++) {
+			if(devise[i].checked==true){
+				console.log(name[i])
+				res.value=dinar*equivalent[i]
+				confirm(+equivalent[i])
+			}
+		}
+	})
+</script>
+</html>
